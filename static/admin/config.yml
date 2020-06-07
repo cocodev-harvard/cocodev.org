@@ -10,14 +10,16 @@ public_folder: 'img'
 collections:
   - name: authors
     label: Members
-    label_singular: Author
+    label_singular: Member
     folder: 'content/authors'
     path: '{{slug}}/_index'
     create: true  # Allow users to create new documents in this collection
     fields:  # The fields each document in this collection have
-      - {label: "Display name (such as your full name)", name: "title", widget: "string"}
-      - {label: "Position or tagline (such as Professor of AI)", name: "role", widget: "string", required: false}
-      - label: "Avatar (upload an image named `avatar.jpg/png`)"
+      - label: "Name"
+        name: "title"
+        widget: "string"
+        hint: "Your first and family name are ideal."
+      - late: "Avatar (upload an image named `avatar.jpg/png`)"
         name: "avatar_filename"
         widget: "image"
         default: "avatar"
@@ -25,7 +27,7 @@ collections:
         media_library:
           config:
             multiple: false
-      - {label: "Short biography (shown in author boxes)", name: "bio", widget: "string", required: false}
+      - {label: "Summary", name: "summary", widget: "string", required: false}
       - {label: "Full biography (shown in About widget)", name: "body", widget: "markdown", required: false}
       - label: "Interests (shown in About widget)"
         name: "interests"
@@ -208,32 +210,31 @@ collections:
       - {label: "Details", name: "body", widget: "markdown"}
   - name: pages
     label: "Pages"
-    files:
-      - file: "content/privacy.md"
-        label: "Privacy Policy"
-        name: "privacy"
-        fields:
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Publish Date", name: "date", widget: "datetime"}
-          - {label: "Subtitle", name: "subtitle", widget: "string"}
-          - {label: "Summary", name: "summary", widget: "markdown"}
-          - label: "Draft"
-            name: "draft"
-            required: false
-            widget: "boolean"
-            default: false
-          - {label: "Body", name: "body", widget: "markdown"}
-      - file: "content/terms.md"
-        label: "Terms"
-        name: "terms"
-        fields:
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Publish Date", name: "date", widget: "datetime"}
-          - {label: "Subtitle", name: "subtitle", widget: "string"}
-          - {label: "Summary", name: "summary", widget: "markdown"}
-          - label: "Draft"
-            name: "draft"
-            required: false
-            widget: "boolean"
-            default: false
-          - {label: "Body", name: "body", widget: "markdown"}
+    files: []
+  - name: docs
+    label: Docs
+    label_singular: Documentation
+    folder: 'content/docs'
+    path: '{{slug}}.md'
+    create: true  # Allow users to create new documents in this collection
+    fields:  # The fields each document in this collection have
+      - label: Title
+        name: title
+        widget: string
+      - label: Summary
+        name: summary
+        widget: markdown
+      - label: Date
+        name: date
+        widget: datetime
+      - label: Menu Location
+        name: menu
+        widget: object
+        fields: []
+      - label: "Draft"
+        name: "draft"
+        widget: "boolean"
+        default: true
+      - label: "Content"
+        name: "body"
+        widget: "markdown"
