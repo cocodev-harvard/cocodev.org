@@ -1,5 +1,8 @@
 ---
 title: Publications
+url: /publications
+aliases: 
+  - /publication
 
 # View.
 #   1 = List
