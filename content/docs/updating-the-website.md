@@ -13,7 +13,7 @@ type: docs  # Do not modify.
 
 menu:
   docs:
-    parent: Lab Documentation
+    parent: Website
     weight: 2
 ---
 
@@ -28,9 +28,9 @@ If you don't, check out the website's [`README`][readme] for more.
 
 {{< /alert >}}
 
+<a id="new-pubs"></a> 
 
-
-## <a id="new-pubs"></a> Adding Publications to the Website
+## Adding Publications to the Website
 1. Edit the `static/bibtex/cocodev.bib` by appending your publication. Make sure
    you create a sensible name for the ID &ndash; e.g. `ullman2017mindgames`.
 1. Next, run:
@@ -47,6 +47,8 @@ If you don't, check out the website's [`README`][readme] for more.
   minutes.
 
 [webrepo]: https://github.com/ionlights/cocodev.org
+
+<a id="new-post"></a>
 
 ## Creating a post, project, or talk
 

@@ -1,6 +1,6 @@
 ---
-title: "Lab Documentation"
-linktitle: "Lab Documentation"
+title: "Documentation"
+linktitle: "Documentation"
 
 summary: >-
   Your hub for getting acquainted with the lab and learning the nuances of how

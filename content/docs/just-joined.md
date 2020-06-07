@@ -11,7 +11,7 @@ type: docs  # Do not modify.
 
 menu:
   docs:
-    parent: Lab Documentation
+    parent: Onboarding
     weight: 1
 ---
 
