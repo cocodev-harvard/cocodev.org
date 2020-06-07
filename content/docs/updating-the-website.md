@@ -1,20 +1,15 @@
 ---
-# Documentation: https://sourcethemes.com/academic/docs/managing-content/
-
-title: "Updating the Website"
-linktitle: "Updating the Website"
-summary:
-
-date: 2020-06-07T05:44:05Z
-
-draft: false  # Is this a draft? true/false
-toc: true  # Show table of contents? true/false
-type: docs  # Do not modify.
-
+title: Updating the Website
+summary: How to add publications and other content to the lab's website.
+date: 2020-06-07T05:44:05.000Z
 menu:
   docs:
     parent: Website
     weight: 2
+draft: false
+toc: true
+type: docs
+linktitle: Updating the Website
 ---
 
 {{< alert warning >}}
@@ -28,7 +23,7 @@ If you don't, check out the website's [`README`][readme] for more.
 
 {{< /alert >}}
 
-<a id="new-pubs"></a> 
+<a id="new-pubs"> </a>
 
 ## Adding Publications to the Website
 1. Edit the `static/bibtex/cocodev.bib` by appending your publication. Make sure
@@ -48,7 +43,7 @@ If you don't, check out the website's [`README`][readme] for more.
 
 [webrepo]: https://github.com/ionlights/cocodev.org
 
-<a id="new-post"></a>
+<a id="new-content"></a>
 
 ## Creating a post, project, or talk
 
