@@ -1,11 +1,15 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: ionlights/cocodev.org
   branch: master
+  use_graphql: true
+
 media_folder: 'static/img/'
 public_folder: 'img'
+
 collections:
   - name: authors
-    label: Authors
+    label: Members
     label_singular: Author
     folder: 'content/authors'
     path: '{{slug}}/_index'
