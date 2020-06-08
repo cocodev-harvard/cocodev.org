@@ -27,7 +27,7 @@ menu:
    you'd like. Once complete, click "Publish" and this will open a Pull Request
    on GitHub. **We also use this to invite you to the lab's GitHub.**
 
-1. Navigate to the [Members]({{< ref "members" >}}) page to verify you show up
+1. Navigate to the [About]({{< ref "about" >}}) page to verify you show up
    as expected. Additionally, look at your profile to ensure the accuracy of
    what's displayed on the website! :smiley:
 
