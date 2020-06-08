@@ -22,9 +22,10 @@ bio: >-
   My research focuses on the structure and origin of knowledge, guided by perspectives and methods from cognitive science, cognitive development, and computational modeling. By combining these, I hope to better understand the form and development of the basic commonsense reasoning that guides our interaction with the world and the people in it.
 
 interests:
-- Artificial Intelligence
-- Computational Linguistics
-- Information Retrieval
+- Computational Cognitive Models
+- Child Development
+- Judgement and Decision Making
+- Hierarchical Reasoning
 
 education:
   courses:
@@ -67,3 +68,18 @@ user_groups:
 - Principal Investigators
 - Researchers
 ---
+
+Tomer Ullman is a cognitive scientist interested in common-sense reasoning, and
+building computational models for explaining high-level cognitive processes and
+the acquisition of new knowledge by children and adults. In particular, he is
+focused on how children and adults come to form intuitive theories of agents and
+objects, and providing both a functional and algorithmic account of how these
+theories are learned. Such an account would go a long way towards explaining the
+basics cogs and springs of human intelligence, and support the building of more
+human-like artificial intelligence. Dr. Ullman received in B.Sc in Cognitive
+Science and Physics from Hebrew University in 2008, and his Ph.D. in Brain and
+Cognitive Sciences from MIT in 2015. From 2015-2018 he was a post-doctoral
+associate at the Center for Brains, Minds, and Machines.
+
+Dr. Ullman's research has been funded by the National Science Foundation, and
+the Center for Brains, Minds, and Machines.
