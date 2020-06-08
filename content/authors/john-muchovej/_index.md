@@ -6,9 +6,6 @@ title: "John Muchovej"
 authors:
 - "ionlights"
 
-# Is this the primary user of the site?
-superuser: false
-
 # Role/position (e.g., Professor of Artificial Intelligence)
 role: Lab Manager
 
@@ -55,7 +52,7 @@ social:
   link: https://john.muchovej.com/vita-muchovej.pdf
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
-email: ""
+email: "john@muchovej.com"
 
 # Organizational groups that you belong to (for People widget)
 #   Set this to `[]` or comment out if you are not using People widget.
