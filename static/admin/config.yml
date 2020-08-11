@@ -4,22 +4,86 @@ backend:
   branch: master
   use_graphql: true
 
-media_folder: 'static/img/'
-public_folder: 'img'
+publish_mode: editorial_workflow
+
+local_backend: true
+
+media_folder: "static/img/"
+public_folder: "img"
+
+x-false-bool: &false-bool { widget: "boolean", default: false, }
+x-opt-list: &opt-list { widget: "list", required: false, }
+x-opt-str: &opt-str { widget: "string", required: false, }
+x-opt-md: &opt-md { widget: "markdown", }
+
+x-title: &title { label: "Title", name: "title", widget: "string", }
+x-subtitle: &subtitle { <<: *opt-str, label: "Subtitle", name: "subtitle", }
+x-body: &body { label: "Body", name: "body", widget: "markdown", }
+x-summary: &summary { label: "Summary", name: "summary", widget: "markdown", }
+
+x-draft: &draft { <<: *false-bool, label: "Draft", name: "draft", }
+x-featured: &featured { <<: *false-bool, label: "Featured", name: "featured", }
+
+x-authors: &authors { <<: *opt-list, label: "Authors", name: "authors", }
+x-tags: &tags { <<: *opt-list, label: "tags", name: "tags", }
+x-categories: &categories { <<: *opt-list, label: "Categories", name: "categories", }
+x-projects: &projects { <<: *opt-list, label: "Projects", name: "projects", }
+
+x-featured-image: &featured-image
+  label: "Featured Image"
+  name: "image"
+  required: false
+  widget: "object"
+  fields:
+    - label: "Upload an image named: `featured.{jpg,png}`"
+      name: "filename"
+      widget: "image"
+      default: "featured"
+      media_library:
+        config:
+          multiple: false
+    - { <<: *opt-str, label: Caption, name: caption, }
+    - { <<: *opt-str, label: Description for screen readers, name: alt_text, }
+    - label: "Where's the focal point in the image? Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight."
+      name: focal_point
+      widget: select
+      required: false
+      default: "Smart"
+      options: ["Smart", "Center", "TopLeft", "Top", "TopRight", "Left", "Right", "BottomLeft", "Bottom", "BottomRight"]
+    - { <<: *false-bool, label: Thumbnail Only?, name: preview_only, }
+
+
+x-icon-links: &icon-links
+  required: false
+  widget: list
+  fields:
+    - {label: Link, name: link, widget: string}
+    - label: Icon pack
+      name: icon_pack
+      widget: select
+      multiple: false
+      options:
+        - {label: "None", value: ""}
+        - {label: "Solid", value: "fas"}
+        - {label: "Regular", value: "far"}
+        - {label: "Brand", value: "fab"}
+        - {label: "Academic", value: "ai"}
+    - {label: Icon (see https://sourcethemes.com/academic/docs/page-builder/#icons), name: icon, widget: string}
+
+
 
 collections:
   - name: authors
     label: Members
     label_singular: Member
-    folder: 'content/authors'
-    path: '{{slug}}/_index'
+    folder: "content/authors"
+    path: "{{slug}}/_index"
     create: true  # Allow users to create new documents in this collection
     fields:  # The fields each document in this collection have
-      - label: "Name"
-        name: "title"
-        widget: "string"
+      - <<: *title
+        label: "Name"
         hint: "Your first and family name are ideal."
-      - late: "Avatar (upload an image named `avatar.jpg/png`)"
+      - label: "Avatar (upload an image named `avatar.{jpg,png}`)"
         name: "avatar_filename"
         widget: "image"
         default: "avatar"
@@ -27,29 +91,16 @@ collections:
         media_library:
           config:
             multiple: false
-      - {label: "Summary", name: "summary", widget: "string", required: false}
-      - {label: "Full biography (shown in About widget)", name: "body", widget: "markdown", required: false}
+      - <<: *summary
+      - <<: *body
+        label: "Full bio (shown on your page and in widgets mentioning you)"
       - label: "Interests (shown in About widget)"
         name: "interests"
         required: false
         widget: "list"
-      - label: Social links
+      - <<: *icon-links
+        label: Social links
         name: social
-        required: false
-        widget: list
-        fields:
-          - {label: Link, name: link, widget: string}
-          - label: Icon pack
-            name: icon_pack
-            widget: select
-            multiple: false
-            options:
-              - {label: "None", value: ""}
-              - {label: "Solid", value: "fas"}
-              - {label: "Regular", value: "far"}
-              - {label: "Brand", value: "fab"}
-              - {label: "Academic", value: "ai"}
-          - {label: Icon (see https://sourcethemes.com/academic/docs/page-builder/#icons), name: icon, widget: string}
       - label: "Organizations you belong to or are affiliated with (shown in About widget)"
         name: "organizations"
         required: false
@@ -71,10 +122,6 @@ collections:
               - {label: Institution, name: institution, widget: string, required: true}
               - {label: Year, name: year, widget: number, valueType: int, required: false}
       - {label: "Email (to use a Gravatar.com avatar)", name: "email", widget: "string", required: false}
-      - label: "Super user (is this the primary site user?)"
-        name: "superuser"
-        widget: "boolean"
-        default: false
       - label: "User groups (only for organization websites)"
         name: "user_groups"
         required: false
@@ -82,159 +129,67 @@ collections:
   - name: posts
     label: Posts
     label_singular: Post
-    folder: 'content/post'
-    path: '{{slug}}/index'
+    folder: "content/post"
+    path: "{{slug}}/index"
     create: true  # Allow users to create new documents in this collection
     fields:  # The fields each document in this collection have
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Subtitle", name: "subtitle", widget: "string"}
-      - {label: "Body", name: "body", widget: "markdown"}
+      - <<: *title
+      - <<: *subtitle
+      - <<: *body
       - {label: "Publish this page on", name: "date", widget: "datetime"}
-      - {label: "Summary", name: "summary", widget: "markdown"}
-      - label: "Draft"
-        name: "draft"
-        widget: "boolean"
-        default: false
-      - label: "Featured"
-        name: "featured"
-        widget: "boolean"
-        default: false
-      - label: "Authors"
-        name: "authors"
-        required: false
-        widget: "list"
-      - label: "Tags"
-        name: "tags"
-        required: false
-        widget: "list"
-      - label: "Categories"
-        name: "categories"
-        required: false
-        widget: "list"
-      - label: "Projects"
-        name: "projects"
-        required: false
-        widget: "list"
-      - label: "Featured Image"
-        name: "image"
-        required: false
-        widget: object
-        fields:
-          - label: "Upload an image named `featured.jpg/png`"
-            name: "filename"
-            widget: "image"
-            default: "featured"
-            media_library:
-              config:
-                multiple: false
-          - {label: Caption, name: caption, widget: string, required: false}
-          - {label: Description for screen readers, name: alt_text, widget: string, required: false}
-          - {label: "Where's the focal point in the image? Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight.", name: focal_point, widget: string, required: false, default: "Smart"}
-          - {label: Thumbnail Only?, name: preview_only, widget: boolean, default: false}
+      - <<: *summary
+      - <<: *draft
+      - <<: *featured
+      - <<: *authors
+      - <<: *tags
+      - <<: *categories
+      - <<: *projects
+      - <<: *featured-image
   - name: talks
     label: Talks
     label_singular: Talk
-    folder: 'content/talk'
-    path: '{{slug}}/index'
+    folder: "content/talk"
+    path: "{{slug}}/index"
     create: true  # Allow users to create new documents in this collection
     fields:  # The fields each document in this collection have
-      - {label: "Title", name: "title", widget: "string"}
+      - <<: *title
       - {label: "Abstract", name: "abstract", widget: "text"}
       - {label: "Where", name: "location", widget: "text"}
       - {label: "From", name: "date", widget: "datetime"}
       - {label: "To", name: "date_end", widget: "datetime", default: ""}
       - {label: "All day event?", name: "all_day", widget: "boolean", default: false}
-      - label: Links/Tickets
+      - <<: *icon-links
+        label: Links/Tickets
         name: links
-        required: false
-        widget: list
-        fields:
-          - {label: Link, name: url, widget: string}
-          - {label: Link text, name: name, widget: string, required: false}
-          - label: Icon pack
-            name: icon_pack
-            widget: select
-            multiple: false
-            required: false
-            options:
-              - {label: "None", value: ""}
-              - {label: "Solid", value: "fas"}
-              - {label: "Regular", value: "far"}
-              - {label: "Brand", value: "fab"}
-              - {label: "Academic", value: "ai"}
-          - {label: "Icon (see https://sourcethemes.com/academic/docs/page-builder/#icons)", name: icon, widget: string, required: false}
       - {label: "Event", name: "event", widget: "string"}
       - {label: "Event link", name: "event_url", widget: "string"}
       - {label: "Publish this page on", name: "publishDate", widget: "datetime"}
-      - {label: "Markdown slides (reference a deck in 'content/slides/')", name: "slides", widget: "string", required: false}
-      - label: "Draft"
-        name: "draft"
-        widget: "boolean"
-        default: false
-      - label: "Featured"
-        name: "featured"
-        widget: "boolean"
-        default: false
-      - label: "Authors"
-        name: "authors"
-        required: false
-        widget: "list"
-      - label: "Tags"
-        name: "tags"
-        required: false
-        widget: "list"
-      - label: "Categories"
-        name: "categories"
-        required: false
-        widget: "list"
-      - label: "Projects (reference projects in 'content/project/')"
-        name: "projects"
-        required: false
-        widget: "list"
-      - label: "Featured Image"
-        name: "image"
-        required: false
-        widget: object
-        fields:
-          - label: "Upload an image named `featured.jpg/png`"
-            name: "filename"
-            widget: "image"
-            default: "featured"
-            media_library:
-              config:
-                multiple: false
-          - {label: Caption, name: caption, widget: string, required: false}
-          - {label: Description for screen readers, name: alt_text, widget: string, required: false}
-          - {label: "Where's the focal point in the image? Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight.", name: focal_point, widget: string, required: false, default: "Smart"}
-          - {label: Thumbnail Only?, name: preview_only, widget: boolean, default: false}
-      - {label: "Details", name: "body", widget: "markdown"}
-  - name: pages
-    label: "Pages"
-    files: []
-  - name: docs
-    label: Docs
-    label_singular: Documentation
-    folder: 'content/docs'
-    path: '{{slug}}.md'
-    create: true  # Allow users to create new documents in this collection
-    fields:  # The fields each document in this collection have
-      - label: Title
-        name: title
-        widget: string
-      - label: Summary
-        name: summary
-        widget: markdown
-      - label: Date
-        name: date
-        widget: datetime
-      - label: Menu Location
-        name: menu
-        widget: object
-        fields: []
-      - label: "Draft"
-        name: "draft"
-        widget: "boolean"
-        default: true
-      - label: "Content"
-        name: "body"
-        widget: "markdown"
+      - {label: "Markdown slides (reference a deck in content/slides/)", name: "slides", widget: "string", required: false}
+      - <<: *draft
+      - <<: *featured
+      - <<: *authors
+      - <<: *tags
+      - <<: *categories
+      - <<: *projects
+      - <<: *featured-image
+      - <<: *body
+        label: "Details"
+  - name: publications"
+    label: "Publications"
+    label_singular: Publication
+    folder: "content/publication"
+    path: "{{slug}}/index"
+    fields:
+      - <<: *title
+      - <<: *subtitle
+      - <<: *body
+      - {label: "Publish this page on", name: "date", widget: "datetime"}
+      - {label: "Publish this page on", name: "publishDate", widget: "datetime"}
+      - <<: *summary
+      - <<: *draft
+      - <<: *featured
+      - <<: *authors
+      - <<: *tags
+      - <<: *categories
+      - <<: *projects
+      - <<: *featured-image
