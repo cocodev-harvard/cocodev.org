@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: ionlights/cocodev.org
+  repo: cocodev-harvard/cocodev.org
   branch: master
   use_graphql: true
   open_authoring: true
