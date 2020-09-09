@@ -3,8 +3,15 @@
 title: Tomer Ullman
 
 # Username (this should match the folder name)
-authors:
-- tomer-ullman
+authors: [ "tomer-ullman", ]
+
+aliases:
+- Tomer Ullman
+- T. Ullman
+- Tomer D Ullman
+- T. D. Ullman
+- Tomer David Ullman
+- TD Ullman
 
 # Is this the primary user of the site?
 superuser: true
@@ -61,6 +68,7 @@ social:
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
 email: ""
+github: tomeru
 
 # Organizational groups that you belong to (for People widget)
 #   Set this to `[]` or comment out if you are not using People widget.
