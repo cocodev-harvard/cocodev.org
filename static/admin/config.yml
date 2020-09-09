@@ -5,8 +5,6 @@ backend:
   use_graphql: true
   open_authoring: true
 
-publish_mode: editorial_workflow
-
 # local_backend: true
 
 media_folder: "static/img/"
@@ -84,6 +82,9 @@ collections:
       - <<: *title
         label: "Name"
         hint: "Your first and family name are ideal."
+      - widget: string
+        label: GitHub
+        name: github
       - label: "Avatar (upload an image named `avatar.{jpg,png}`)"
         name: "avatar_filename"
         widget: "image"
@@ -102,10 +103,11 @@ collections:
       - <<: *icon-links
         label: Social links
         name: social
-      - label: "Organizations you belong to or are affiliated with (shown in About widget)"
+      - label: "Organizations"
         name: "organizations"
         required: false
         widget: list
+        hint: Organizations you belong to or are affiliated with.
         fields:
           - {label: Organization, name: name, widget: string, required: true}
           - {label: Link, name: url, widget: string, required: false}
@@ -114,15 +116,14 @@ collections:
         required: false
         widget: object
         fields:
-          - label: "Courses"
+          - label: "Degrees"
             name: "courses"
             required: false
             widget: list
             fields:
-              - {label: Course, name: course, widget: string, required: true}
+              - {label: Program, name: course, widget: string, required: true}
               - {label: Institution, name: institution, widget: string, required: true}
               - {label: Year, name: year, widget: number, valueType: int, required: false}
-      - {label: "Email (to use a Gravatar.com avatar)", name: "email", widget: "string", required: false}
       - label: "User groups (only for organization websites)"
         name: "user_groups"
         required: false
@@ -180,6 +181,7 @@ collections:
     label_singular: Publication
     folder: "content/publication"
     path: "{{slug}}/index"
+    create: false
     fields:
       - <<: *title
       - <<: *subtitle
