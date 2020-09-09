@@ -3,7 +3,6 @@ backend:
   repo: cocodev-harvard/cocodev.org
   branch: master
   use_graphql: true
-  open_authoring: true
 
 # local_backend: true
 
