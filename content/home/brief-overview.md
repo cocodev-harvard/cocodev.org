@@ -2,7 +2,7 @@
 title: An Overview
 subtitle: Our Motivations
 
-widget_type: blank
+widget: blank
 active: true
 
 weight: 1
