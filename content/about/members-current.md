@@ -15,7 +15,7 @@ content:
   - Administration
   - Postdocs
   - Graduate Students
-  - Students
+  - Undergraduate Students
 
 design:
   show_social: false
