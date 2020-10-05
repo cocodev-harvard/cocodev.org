@@ -48,7 +48,7 @@ local_business_type = ""
 org_name = "Computation, Cognition, and Development Lab"
 
 # Description for social sharing and search engines. If undefined, superuser role is used in place.
-description = ""
+description = "We investigate the common-sense knowledge people have about the world, where it comes from, and how it develops throughout childhood."
 
 ############################
 ## Site Features
@@ -93,11 +93,11 @@ phone = ""
 
 # Address
 # For country_code, use the 2-letter ISO code (see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 )
-address = {street = "33 Kirkland St", city = "Cambridge", region = "MA", postcode = "02138", country = "United States", country_code = "US"}
+# address = {street = "33 Kirkland St", city = "Cambridge", region = "MA", postcode = "02138", country = "United States", country_code = "US"}
 
 # Geographic coordinates
 # To get your coordinates, right-click on Google Maps and choose "What's here?". The coords will show up at the bottom.
-coordinates = {latitude = "42.3771666", longitude = "-71.1156173"}
+# coordinates = {latitude = "42.3771666", longitude = "-71.1156173"}
 
 # Directions for visitors to locate you.
 directions = ""
@@ -147,7 +147,7 @@ address_format = "en-us"
 ############################
 
 # Main menu alignment (l = left, c = center, r = right) and logo options.
-main_menu = {align = "l", show_logo = true}
+main_menu = {align = "c", show_logo = true}
 
 # Show estimated reading time for posts? (true/false)
 reading_time = true
@@ -182,7 +182,7 @@ plugins_js  = []
   github = true
 
   # Choose a shape for avatar images. Options: circle, square.
-  shape = "circle"
+  shape = "rounded"
 
 # Available address formats.
 [address_formats]
@@ -271,7 +271,7 @@ plugins_js  = []
   #   1: Google Maps
   #   2: OpenStreetMap (Mapnik)
   #   3: OpenStreetMap (Mapbox)
-  engine = 2
+  engine = 0
   api_key = ""
   zoom = 15
 
@@ -288,3 +288,6 @@ plugins_js  = []
 [cms]
   # See https://sourcethemes.com/academic/docs/install/#install-with-web-browser
   netlify_cms = true
+
+[icon.pack]
+  ai = true  # Academicons icon pack https://jpswalsh.github.io/academicons/
