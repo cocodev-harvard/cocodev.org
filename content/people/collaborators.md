@@ -5,16 +5,16 @@ active: false
 weight: 9999
 
 title: "Collaborators"
-subtitle: ""
 
 content:
   # Choose which groups/teams of users to display.
   #   Edit `user_groups` in each user's profile to add them to one or more of these groups.
   user_groups: 
+    - Collaborators
 
 design:
-  show_social: false
-  show_interests: true
+  show_social: true
+  show_interests: false
 
   background:
     # Apply a background color, gradient, or image.

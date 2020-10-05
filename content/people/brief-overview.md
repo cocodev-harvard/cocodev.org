@@ -3,9 +3,9 @@ title: An Overview
 subtitle: Our Motivations
 
 widget_type: blank
-active: true
+active: false
 
-weight: 10
+weight: 1
 ---
 
 The _Computation, Cognition, and Development Lab_ is at the center of cognitive
