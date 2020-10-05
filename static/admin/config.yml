@@ -4,7 +4,7 @@ backend:
   branch: master
   use_graphql: true
 
-# local_backend: true
+local_backend: true
 
 media_folder: "static/img/"
 public_folder: "img"
@@ -12,9 +12,10 @@ public_folder: "img"
 x-false-bool: &false-bool { widget: "boolean", default: false, }
 x-opt-list: &opt-list { widget: "list", required: false, }
 x-opt-str: &opt-str { widget: "string", required: false, }
+x-req-str: &req-str { widget: "string", required: true, }
 x-opt-md: &opt-md { widget: "markdown", }
 
-x-title: &title { label: "Title", name: "title", widget: "string", }
+x-title: &title { <<: *req-str , label: "Title", name: "title", }
 x-subtitle: &subtitle { <<: *opt-str, label: "Subtitle", name: "subtitle", }
 x-body: &body { label: "Body", name: "body", widget: "markdown", }
 x-summary: &summary { label: "Summary", name: "summary", widget: "markdown", }
@@ -37,6 +38,7 @@ x-featured-image: &featured-image
       name: "filename"
       widget: "image"
       default: "featured"
+      required: false
       media_library:
         config:
           multiple: false
@@ -81,9 +83,7 @@ collections:
       - <<: *title
         label: "Name"
         hint: "Your first and family name are ideal."
-      - widget: string
-        label: GitHub
-        name: github
+      - { <<: *opt-str , label: GitHub, name: github, }
       - label: "Avatar (upload an image named `avatar.{jpg,png}`)"
         name: "avatar_filename"
         widget: "image"
@@ -125,73 +125,57 @@ collections:
               - {label: Year, name: year, widget: number, valueType: int, required: false}
       - label: "User groups (only for organization websites)"
         name: "user_groups"
-        required: false
-        widget: "list"
-  - name: posts
-    label: Posts
-    label_singular: Post
-    folder: "content/post"
-    path: "{{slug}}/index"
-    create: true  # Allow users to create new documents in this collection
-    fields:  # The fields each document in this collection have
-      - <<: *title
-      - <<: *subtitle
-      - <<: *body
-      - {label: "Publish this page on", name: "date", widget: "datetime"}
-      - <<: *summary
-      - <<: *draft
-      - <<: *featured
-      - <<: *authors
-      - <<: *tags
-      - <<: *categories
-      - <<: *projects
-      - <<: *featured-image
-  - name: talks
-    label: Talks
-    label_singular: Talk
-    folder: "content/talk"
-    path: "{{slug}}/index"
-    create: true  # Allow users to create new documents in this collection
-    fields:  # The fields each document in this collection have
-      - <<: *title
-      - {label: "Abstract", name: "abstract", widget: "text"}
-      - {label: "Where", name: "location", widget: "text"}
-      - {label: "From", name: "date", widget: "datetime"}
-      - {label: "To", name: "date_end", widget: "datetime", default: ""}
-      - {label: "All day event?", name: "all_day", widget: "boolean", default: false}
-      - <<: *icon-links
-        label: Links/Tickets
-        name: links
-      - {label: "Event", name: "event", widget: "string"}
-      - {label: "Event link", name: "event_url", widget: "string"}
-      - {label: "Publish this page on", name: "publishDate", widget: "datetime"}
-      - {label: "Markdown slides (reference a deck in content/slides/)", name: "slides", widget: "string", required: false}
-      - <<: *draft
-      - <<: *featured
-      - <<: *authors
-      - <<: *tags
-      - <<: *categories
-      - <<: *projects
-      - <<: *featured-image
-      - <<: *body
-        label: "Details"
-  - name: publications"
+        widget: "select"
+        multiple: true
+        options:
+          - { value: "Researchers", label: "Researchers", }
+          - { value: "Administration", label: "Administration", }
+          - { value: "Alumni", label: "Alumni", }
+          - { value: "Postdocs", label: "Postodcs", }
+          - { value: "Graduate Students", label: "Graduate Students", }
+          - { value: "Undergraduate Students", label: "Undergraduate Students", }
+  - name: publications
     label: "Publications"
     label_singular: Publication
     folder: "content/publication"
     path: "{{slug}}/index"
+    summary: "{{fields.publication_short}} - {{fields.title}}"
     create: false
+    sortable_fields: ["date", "title", "publication"]
     fields:
       - <<: *title
-      - <<: *subtitle
-      - <<: *body
-      - {label: "Publish this page on", name: "date", widget: "datetime"}
-      - {label: "Publish this page on", name: "publishDate", widget: "datetime"}
-      - <<: *summary
-      - <<: *draft
-      - <<: *featured
-      - <<: *authors
-      - <<: *tags
-      - <<: *categories
-      - <<: *projects
-      - <<: *featured-image
+      # - <<: *subtitle
+      - name: publication_types
+        label: Publication Type
+        widget: select
+        multiple: true
+        options:
+        - { value: "0", label: Uncategorized Publication, }
+        - { value: "1", label: Conference Publication, }
+        - { value: "2", label: Journal Publication, }
+        - { value: "3", label: Preprint, }
+        - { value: "4", label: Report, }
+        - { value: "5", label: Book, }
+        - { value: "6", label: Book Section/Chapter, }
+        - { value: "7", label: Thesis, }
+        - { value: "8", label: Patent, }
+      - {label: "When is this available to the public?", name: "date", widget: "datetime"}
+      - { <<: *summary , name: abstract, label: Abstract }
+      - { <<: *draft }
+      - { <<: *featured }
+      - { <<: *authors }
+      - { <<: *authors , name: author_notes, label: Author Notes }
+      - { <<: *tags }
+      # - <<: *categories
+      - { <<: *projects }
+      - { <<: *req-str, name: publication,  label: Venue }
+      - { <<: *opt-str, name: publication_short , label: Venue Abbreviation, }
+      - { <<: *opt-str , name: doi , label: DOI , }
+      - { <<: *opt-str , name: url_pdf, label: PDF URL, }
+      - { <<: *opt-str , name: url_code, label: Code Repository, }
+      - { <<: *opt-str , name: url_dataset, label: Dataset URL, }
+      - { <<: *opt-str , name: url_poster, label: Poster URL, }
+      - { <<: *opt-str , name: url_project, label: Project URL, }
+      - { <<: *opt-str , name: url_slides, label: Slides URL, }
+      - { <<: *opt-str , name: url_source, label: Source URL, }
+      - { <<: *opt-str , name: url_video, label: Video URL, }
