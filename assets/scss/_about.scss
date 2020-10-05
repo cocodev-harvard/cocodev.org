@@ -1,0 +1,12 @@
+.avatar-rounded {
+    border-radius: 0.5rem;
+}
+
+.col.people-person {
+    text-align: left;
+
+    .avatar {
+        margin: 0;
+        max-width: 13em;
+    }
+}

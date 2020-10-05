@@ -1,0 +1,85 @@
+  nav.nav-blocks {
+      text-align: center;
+      div.nav-block {
+        padding: 1rem;
+
+        &:nth-child(4n+1) { a { background-color: nth($ln-colors, 1); } }
+        &:nth-child(4n+2) { a { background-color: nth($ln-colors, 2); } }
+        &:nth-child(4n+3) { a { background-color: nth($ln-colors, 3); } }
+        &:nth-child(4n+0) { a { background-color: nth($ln-colors, 4); } }
+
+      }
+
+      a {
+        text-align: center;
+        color: #fefefe;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        justify-content: space-around;
+        border-radius: 0.25em;
+        transition: 300ms ease-in;
+        letter-spacing: 0.2em;
+        font: "Source Sans Pro", sans-serif;
+
+        &:before, &:after {
+          content: "";
+          display: block;
+          opacity: 0.35;
+          transition: 250ms ease-in;
+        }
+
+        &:before {
+          background-image: url("/images/cross.svg");
+          width: 100%;
+          height: 100%;
+          background-size: cover;
+          position: absolute;
+        }
+
+        &:after {
+            padding-bottom: 100%;
+            border-radius: 0.25em;
+            background-color: transparent;
+        }
+
+        &:hover {
+          transform: scale(1.1);
+          &:before {
+            opacity: 0;
+          }
+          &:after {
+            background-color: #333;
+          }
+          span.nav-block-title {
+            transform: translateY(-50%);
+          }
+          span.nav-block-subtitle {
+            opacity: 1;
+            transform: translateY(75%);
+          }
+        }
+
+
+        span {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            transition: 400ms ease-in-out;
+        }
+
+        span.nav-block-title {
+          font-weight: bold;
+          text-transform: uppercase;
+          z-index: 2000;
+        }
+
+        span.nav-block-subtitle {
+          font-weight: 200;
+          opacity: 0;
+          z-index: 1000;
+          font-size: 0.625em;
+        }
+
+      }
+  }
