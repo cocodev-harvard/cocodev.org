@@ -1,12 +1,14 @@
 ---
 title: John Muchovej
-github: ionlights
-avatar_filename: avatar
+avatar_filename: avatar.jpg
 summary: test
 social:
   - link: https://github.com/ionlights
     icon_pack: fab
     icon: github
+  - link: https://john.muchovej.com
+    icon_pack: fas
+    icon: globe-americas
 organizations:
   - name: CoCoDev
     url: https://cocodev.org
@@ -20,5 +22,6 @@ education:
 user_groups:
   - Administration
   - Researchers
+role: Lab Manager / Research Assistant
 ---
 test
