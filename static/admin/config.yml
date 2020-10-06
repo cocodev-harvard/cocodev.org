@@ -4,9 +4,12 @@ backend:
   branch: master
   use_graphql: true
 
+publish_mode: editorial_workflow
+
 local_backend: true
-site_url: "https://cocodev.netlify.app/"
-display_url: "https://cocodev.netlify.app/"
+
+site_url: "https://cocodev.netlify.app"
+display_url: "https://cocodev.netlify.app"
 logo_url: "https://cocodev.netlify.app/images/logo-abbreviation.svg"
 
 media_folder: "static/images/"
@@ -78,6 +81,7 @@ collections:
     label_singular: Member
     folder: "content/authors"
     path: "{{slug}}/_index"
+    preview_path: "authors/{{slug}}/"
     create: true  # Allow users to create new documents in this collection
     fields:  # The fields each document in this collection have
       - <<: *title
