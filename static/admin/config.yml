@@ -5,9 +5,12 @@ backend:
   use_graphql: true
 
 local_backend: true
+site_url: "https://cocodev.netlify.app/"
+display_url: "https://cocodev.netlify.app/"
+logo_url: "https://cocodev.netlify.app/images/logo-abbreviation.svg"
 
-media_folder: "static/img/"
-public_folder: "img"
+media_folder: "static/images/"
+public_folder: "images"
 
 x-false-bool: &false-bool { widget: "boolean", default: false, }
 x-opt-list: &opt-list { widget: "list", required: false, }
@@ -52,7 +55,6 @@ x-featured-image: &featured-image
       options: ["Smart", "Center", "TopLeft", "Top", "TopRight", "Left", "Right", "BottomLeft", "Bottom", "BottomRight"]
     - { <<: *false-bool, label: Thumbnail Only?, name: preview_only, }
 
-
 x-icon-links: &icon-links
   required: false
   widget: list
@@ -70,8 +72,6 @@ x-icon-links: &icon-links
         - {label: "Academic", value: "ai"}
     - {label: Icon (see https://sourcethemes.com/academic/docs/page-builder/#icons), name: icon, widget: string}
 
-
-
 collections:
   - name: authors
     label: Members
@@ -83,7 +83,6 @@ collections:
       - <<: *title
         label: "Name"
         hint: "Your first and family name are ideal."
-      - { <<: *opt-str , label: GitHub, name: github, }
       - label: "Avatar (upload an image named `avatar.{jpg,png}`)"
         name: "avatar_filename"
         widget: "image"
@@ -140,10 +139,11 @@ collections:
     folder: "content/publication"
     path: "{{slug}}/index"
     summary: "{{fields.publication_short}} - {{fields.title}}"
-    create: false
+    create: true
     sortable_fields: ["date", "title", "publication"]
     fields:
-      - <<: *title
+      - { <<: *req-str , label: "URL Key", name: slug, hint: "This should be something like... <first-author-last-name><year><first-title-word>."}
+      - { <<: *title }
       # - <<: *subtitle
       - name: publication_types
         label: Publication Type
@@ -159,8 +159,14 @@ collections:
         - { value: "6", label: Book Section/Chapter, }
         - { value: "7", label: Thesis, }
         - { value: "8", label: Patent, }
-      - {label: "When is this available to the public?", name: "date", widget: "datetime"}
+      - {label: "Venue Publication Date", name: "date", widget: "datetime"}
       - { <<: *summary , name: abstract, label: Abstract }
+      - label: "Publication Upload"
+        name: "url_pdf"
+        widget: "file"
+        media_library:
+          config:
+            multiple: true
       - { <<: *draft }
       - { <<: *featured }
       - { <<: *authors }
@@ -171,7 +177,7 @@ collections:
       - { <<: *req-str, name: publication,  label: Venue }
       - { <<: *opt-str, name: publication_short , label: Venue Abbreviation, }
       - { <<: *opt-str , name: doi , label: DOI , }
-      - { <<: *opt-str , name: url_pdf, label: PDF URL, }
+      # - { <<: *opt-str , name: url_pdf, label: PDF URL, }
       - { <<: *opt-str , name: url_code, label: Code Repository, }
       - { <<: *opt-str , name: url_dataset, label: Dataset URL, }
       - { <<: *opt-str , name: url_poster, label: Poster URL, }
