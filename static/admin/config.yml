@@ -91,9 +91,8 @@ collections:
         media_library:
           config:
             multiple: false
-      - <<: *summary
-      - <<: *body
-        label: "Full bio (shown on your page and in widgets mentioning you)"
+      - { <<: *summary , name: bio, label: "Brief Description", hint: "About 2 tweets.", }
+      - { <<: *body , label: "Full Description", hint: "Shown on your page.", }
       - label: "Interests (shown in About widget)"
         name: "interests"
         required: false
