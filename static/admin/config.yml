@@ -84,10 +84,14 @@ collections:
     path: "{{slug}}/_index"
     preview_path: "authors/{{slug}}/"
     create: true  # Allow users to create new documents in this collection
+    preview: false
     fields:  # The fields each document in this collection have
       - <<: *title
         label: "Name"
         hint: "Your first and family name are ideal."
+      - label: "Aliases"
+        name: "nicknames"
+        hint: "When published, what are alternate aliases of your name? (e.g. Tomer D Ullman)"
       - label: "Avatar (upload an image named `avatar.{jpg,png}`)"
         name: "avatar_filename"
         widget: "image"
@@ -126,17 +130,17 @@ collections:
               - {label: Program, name: course, widget: string, required: true}
               - {label: Institution, name: institution, widget: string, required: true}
               - {label: Year, name: year, widget: number, valueType: int, required: false}
-      - label: "User groups (only for organization websites)"
+      - label: "What are your roles in CoCoDev?"
         name: "user_groups"
         widget: "select"
         multiple: true
         options:
-          - { value: "Researchers", label: "Researchers", }
+          - { value: "Researchers", label: "Researcher", }
           - { value: "Administration", label: "Administration", }
           - { value: "Alumni", label: "Alumni", }
-          - { value: "Postdocs", label: "Postodcs", }
-          - { value: "Graduate Students", label: "Graduate Students", }
-          - { value: "Undergraduate Students", label: "Undergraduate Students", }
+          - { value: "Postdocs", label: "Postdoc", }
+          - { value: "Graduate Students", label: "Graduate Student", }
+          - { value: "Undergraduate Students", label: "Undergraduate Student", }
   - name: publications
     label: "Publications"
     label_singular: Publication
