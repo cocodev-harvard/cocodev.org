@@ -23,7 +23,7 @@
   {{ range $page.Params.content.user_groups }}
   {{ $query := where (where site.Pages "Section" "authors") ".Params.user_groups" "intersect" (slice .) }}
 
-  {{ range $query }}
+  {{ range $author := $query }}
     {{/* Get link to users profile page. */}}
     {{ $link := "" }}
     {{ with site.GetPage (printf "/authors/%s" (path.Base (path.Split .Path).Dir)) }}
@@ -42,8 +42,10 @@
         <h4>{{ . | markdownify | emojify }}</h4>
       {{ end }}
 
-      {{ if and $show_social (gt (len .Params.social) 1) }}
-        {{ partial "social_links" . }}
+      {{ with .Params.social }}
+      {{ if $show_social }}
+        {{ partial "social_links" $author }}
+      {{ end }}
       {{ end }}
 
       {{ if and $show_interests .Params.interests }}
