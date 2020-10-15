@@ -1,22 +1,19 @@
 version: "3"
 services:
   hugo:
-    image: jojomi/hugo:0.65.0
+    image: klakegg/hugo:0.74.3-ext
     container_name: cocodev-org
     hostname: cocodev-org
-    environment:
-      - HUGO_THEME=academic
-      - HUGO_WATCH=true
-      # - HUGO_BASEURL=
+    restart: unless-stopped
     command:
-      - /run.sh  # from Dockerfile
+      - server
       - --buildFuture
       - --disableFastRender
       - --verbose
-      - --port=26263
+      - --port 1313
       - --liveReloadPort=26263
     volumes:
       - .:/src
       # use the volume mount below to inspect the hugo output, IFF needed
       # - ./build:/output
-    ports: [ "26263:26263", ]
+    ports: [ "26263:1313", ]
