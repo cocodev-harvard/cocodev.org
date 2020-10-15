@@ -8,6 +8,6 @@ bio: I'm interested in using experimentation, modeling, and theory to explore
   mathematics.
 user_groups:
   - Graduate Students
-  - Researcher
+  - Researchers
 ---
 TBD
