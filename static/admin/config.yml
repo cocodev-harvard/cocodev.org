@@ -92,6 +92,8 @@ collections:
       - label: "Aliases"
         name: "nicknames"
         hint: "When published, what are alternate aliases of your name? (e.g. Tomer D Ullman)"
+        widget: list
+        required: false
       - label: "Avatar (upload an image named `avatar.{jpg,png}`)"
         name: "avatar_filename"
         widget: "image"
