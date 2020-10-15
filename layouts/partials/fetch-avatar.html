@@ -3,6 +3,9 @@
 
 {{ $params := $person.Params }}
 {{ $avatar := ($person.Resources.ByType "image").GetMatch "*avatar*" }}
+{{ if not $avatar }}
+  {{ $avatar = ($person.Resources.ByType "image").GetMatch $params.avatar_filename }}
+{{ end }}
 {{ $avatar_shape := site.Params.avatar.shape | default "circle" }}
 {{ $avatar_shape = printf "avatar-%s" $avatar_shape }}
 
