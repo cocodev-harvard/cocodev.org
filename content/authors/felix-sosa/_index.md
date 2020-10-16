@@ -29,6 +29,7 @@ education:
       institution: Harvard
 user_groups:
   - Graduate Students
+  - Researchers
 ---
 I use the spaces of theoretical computer science, programming languages, and evolutionary theory to advance our understanding of the generative processes behind human intelligence. 
 
