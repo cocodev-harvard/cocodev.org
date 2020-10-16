@@ -89,6 +89,10 @@ collections:
       - <<: *title
         label: "Name"
         hint: "Your first and family name are ideal."
+      - <<: *req-str
+        label: "Role"
+        name: "role"
+        hint: "What do you do in the lab?"
       - label: "Aliases"
         name: "nicknames"
         hint: "When published, what are alternate aliases of your name? (e.g. Tomer D Ullman)"
