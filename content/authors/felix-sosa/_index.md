@@ -1,0 +1,32 @@
+---
+title: Felix Sosa
+avatar_filename: felix.jpg
+bio: I use the spaces of theoretical computer science, programming languages,
+  and evolutionary theory to advance our understanding of the generative
+  processes behind human intelligence. My current projects investigate the
+  explanatory power programs have as a normative account of mental
+  representation (e.g. if concepts are programs, how do people learn and use
+  them?) and formalizing the development and evolution of our seemingly innate
+  intuitions about the world (e.g. intuitive physics).
+interests:
+  - Concepts
+  - Evo-Devo
+  - Program Synthesis
+  - Evolutionary Computation
+  - Programming Languages (PL)
+  - Types
+social: []
+education:
+  courses:
+    - course: BSc Computer Science
+      institution: University of Central Florida
+      year: 2018
+    - course: SM Computer Science
+      institution: Harvard
+      year: ""
+    - course: PhD Cognitive Science
+      institution: Harvard
+user_groups:
+  - Graduate Students
+---
+I use the spaces of theoretical computer science, programming languages, and evolutionary theory to advance our understanding of the generative processes behind human intelligence. My current projects investigate the explanatory power programs have as a normative account of mental representation (e.g. if concepts are programs, how do people learn and use them?) and formalizing the development and evolution of our seemingly innate intuitions about the world (e.g. intuitive physics).
