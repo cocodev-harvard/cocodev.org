@@ -1,7 +1,7 @@
 backend:
   name: github
   repo: cocodev-harvard/cocodev.org
-  branch: master
+  branch: release
   use_graphql: true
   open_authoring: true
 
