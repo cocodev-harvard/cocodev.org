@@ -1,5 +1,10 @@
 ---
 title: Felix Sosa
+nicknames:
+  - F. Sosa
+  - F. A. Sosa
+  - FA Sosa
+  - F.A. Sosa
 avatar_filename: felix.jpg
 bio: I use the spaces of theoretical computer science, programming languages,
   and evolutionary theory to advance our understanding of the generative
