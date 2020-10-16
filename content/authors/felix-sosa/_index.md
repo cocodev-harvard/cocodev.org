@@ -1,5 +1,6 @@
 ---
 title: Felix Sosa
+role: Graduate Student
 nicknames:
   - F. Sosa
   - F. A. Sosa
@@ -16,7 +17,16 @@ interests:
   - Evolutionary Computation
   - Programming Languages (PL)
   - Types
-social: []
+social:
+  - icon_pack: fab
+    icon: github
+    link: https://github.com/flxsosa
+  - icon_pack: ai
+    icon: google-scholar
+    link: https://scholar.google.com/citations?user=SyGIHp8AAAAJ&hl=en
+  - link: https://felixsosa.com
+    icon_pack: fas
+    icon: globe-americas
 education:
   courses:
     - course: BSc Computer Science
