@@ -2,7 +2,8 @@
 organizations:
   - name: Harvard University
     url: https://harvard.edu/
-github: tomeru
+github: 
+avatar_filename: tomer.jpg
 superuser: true
 authors:
   - tomer-ullman
