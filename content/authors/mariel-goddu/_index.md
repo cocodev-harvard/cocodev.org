@@ -8,7 +8,10 @@ bio: By studying the development of the human cognitive abilities that enable us
   to pretend that bananas are telephones, I seek to gain purchase on a set of
   theoretical questions concerning the relation between action, causal
   reasoning, and conceptual development.
-interests: []
+interests:
+  - Difference-Making
+  - Causal Reasoning
+  - Child Development
 organizations:
   - name: CoCoDev @ Harvard
     url: https://cocodev.org/
