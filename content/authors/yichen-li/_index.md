@@ -15,7 +15,10 @@ education:
   courses:
     - course: BA in Mathematics, Computer Science
       institution: New York University
-      year: 2018
+      year: 2020
+    - course: PhD in Cognitive Science
+      institution: Harvard University
+      year: 2025
 user_groups:
   - Graduate Students
   - Researchers
