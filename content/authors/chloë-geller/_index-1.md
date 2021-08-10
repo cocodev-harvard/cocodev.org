@@ -1,0 +1,20 @@
+---
+title: Chloë Geller
+role: Undergraduate Student
+avatar_filename: avatar
+bio: Planning, D-M, Utility Calculus
+social:
+  - link: https://github.com/chloegeller
+    icon_pack: fab
+    icon: github
+organizations: []
+education:
+  courses:
+    - course: B.Sc. in Computer Science
+      institution: University of Central Florida
+      year: 2024
+user_groups:
+  - Undergraduate Students
+  - Researchers
+---
+Planning, D-M, Utility Calculus
