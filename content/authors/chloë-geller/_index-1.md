@@ -1,7 +1,7 @@
 ---
 title: Chloë Geller
 role: Undergraduate Student
-avatar_filename: avatar
+avatar_filename: avatar.jpg
 bio: WIP
 social:
   - link: https://github.com/chloegeller
