@@ -2,7 +2,7 @@
 title: Chloë Geller
 role: Undergraduate Student
 avatar_filename: avatar
-bio: Planning, D-M, Utility Calculus
+bio: WIP
 social:
   - link: https://github.com/chloegeller
     icon_pack: fab
@@ -17,4 +17,4 @@ user_groups:
   - Undergraduate Students
   - Researchers
 ---
-Planning, D-M, Utility Calculus
+WIP
