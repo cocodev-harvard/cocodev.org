@@ -1,7 +1,7 @@
 ---
 title: Ilona (Lonnie) Bass
 role: Postdoc
-avatar_filename: img_1531.jpg
+avatar_filename: img_1531-copy.jpg
 bio: I scrutinize the role of social information in shaping and constraining
   children's inferences through empirical work with children and adults, and
   with computational models that formally capture these cognitive processes.
