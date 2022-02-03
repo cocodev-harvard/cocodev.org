@@ -8,7 +8,7 @@ bio: How do humans learn so much, so quickly? One answer to this question comes
   people*. I scrutinize the role of social information in shaping and
   constraining children's inferences through empirical work with children and
   adults, and with computational models that formally capture these cognitive
-  processes.
+  processes. :)
 user_groups:
   - Postdocs
 ---
