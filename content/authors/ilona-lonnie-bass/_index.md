@@ -10,7 +10,7 @@ organizations:
   - name: CoCoDev @ HGSE
     url: https://projects.iq.harvard.edu/ccdlab
   - name: Personal Webpage
-    url: ilonabass.weebly.com
+    url: https://ilonabass.weebly.com
 education:
   courses:
     - institution: Oberlin College
