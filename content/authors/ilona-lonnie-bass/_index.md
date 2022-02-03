@@ -6,6 +6,9 @@ bio: I scrutinize the role of social information in shaping and constraining
   children's inferences through empirical work with children and adults, and
   with computational models that formally capture these cognitive processes.
 social: []
+organizations:
+  - name: CoCoDev @ HGSE
+    url: https://projects.iq.harvard.edu/ccdlab
 education:
   courses:
     - institution: Oberlin College
