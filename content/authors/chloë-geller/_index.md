@@ -2,7 +2,8 @@
 title: Chloë Geller
 role: Research Assistant
 avatar_filename: avatar.jpg
-bio: I'm interested in human decision-making.
+bio: I'm interested in the cognitive computations that underlie how context
+  affects human decision-making, planning, and learning.
 social:
   - link: mailto:cgeller@g.harvard.edu
     icon_pack: fas
