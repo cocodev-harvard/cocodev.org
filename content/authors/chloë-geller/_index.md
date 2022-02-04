@@ -1,7 +1,7 @@
 ---
 title: Chloë Geller
 role: Research Assistant
-avatar_filename: chloe-min.jpg
+avatar_filename: 162ff70d-f986-4d8b-b846-02f38e547bbf_1_201_a.jpeg
 bio: I'm interested in the cognitive computations that underlie how context
   affects human decision-making, planning, and learning.
 social:
