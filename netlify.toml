@@ -24,3 +24,9 @@
   for = "index.xml"
   [headers.values]
     Content-Type = "application/rss+xml"
+    
+[[redirects]]
+  from = "/receipts"
+  to = "https://docs.google.com/forms/d/e/1FAIpQLScodtjivmiUQKB_ppnP1mWZeXaoa_O2P0D8xbfmYU4CcaaxZw/viewform"
+  status = 301
+  force = true
