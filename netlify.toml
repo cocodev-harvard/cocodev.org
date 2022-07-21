@@ -30,3 +30,9 @@
   to = "https://docs.google.com/forms/d/e/1FAIpQLScodtjivmiUQKB_ppnP1mWZeXaoa_O2P0D8xbfmYU4CcaaxZw/viewform"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/listserv"
+  to = "https://web.lists.fas.harvard.edu/mailman/lists/cocodev.lists.fas.harvard.edu"
+  status = 301
+  force = true
