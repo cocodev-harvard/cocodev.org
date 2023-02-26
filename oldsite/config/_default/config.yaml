@@ -1,0 +1,119 @@
+# Configuration of Hugo
+# Guide: https://wowchemy.com/docs/getting-started/
+# Hugo Documentation: https://gohugo.io/getting-started/configuration/#all-configuration-settings
+#
+# This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
+# https://github.com/wowchemy/wowchemy-hugo-themes/blob/main/starters/academic/config/_default/config.yaml
+
+# Title of your site
+title: "CoCoDev Lab"
+
+# The URL of your site.
+# End your URL with a `/` trailing slash, e.g. `https://example.com/`.
+baseURL: "http://localhost:26263/"
+
+module:
+  imports:
+    - path: "github.com/wowchemy/wowchemy"
+    - path: "github.com/wowchemy/wowchemy-plugin-netlify-cms"
+
+# Enter a copyright notice to display in the site footer.
+# To display a copyright symbol, type `&copy;`. For current year, type `{year}`.
+copyright: "{year}"
+
+############################
+## Advanced options below ##
+############################
+
+# Get last modified date for content from Git?
+enableGitInfo: true
+
+# Default language to use (if you setup multilingual support)
+# defaultContentLanguage: "en"
+hasCJKLanguage: false  # Set `true` for Chinese/Japanese/Korean languages.
+defaultContentLanguageInSubdir: false
+removePathAccents: true  # Workaround for https://github.com/gohugoio/hugo/issues/5687
+
+summaryLength: 30  # Listing summary length in words. Also, see `abstract_length` in `params.toml`.
+paginate: 10  # Number of items per page in paginated lists.
+enableEmoji: true
+footnotereturnlinkcontents: "<sup>^</sup>"
+ignoreFiles:
+  - "\\.ipynb$"
+  - ".ipynb_checkpoints$"
+  - "\\.Rmd$"
+  - "\\.Rmarkdown$"
+  - "_files$"
+  - "_cache$"
+
+# Workaround Hugo publishing taxonomy URLs as plurals - consistently use singular across Academic.
+permalinks:
+  authors: "/about/:slug/"
+  tags: "/tags/:slug/"
+  categories: "/categories/:slug"
+  publication: "/publications/:slug"
+  project: "/projects/:slug"
+  page: "/:slug"
+
+outputs:
+  home:
+    - "HTML"
+    - "RSS"
+    - "JSON"
+    - "WebAppManifest"
+  section:
+    - "HTML"
+    - "RSS"
+
+mediaTypes:
+  "application/manifest+json":
+    suffixes:
+      - "webmanifest"
+
+outputFormats:
+  WebAppManifest:
+    mediaType: "application/manifest+json"
+    rel: "manifest"
+
+# Configure the Markdown renderer.
+markup:
+  defaultMarkdownHandler: "goldmark"
+  goldmark:
+    renderer:
+      unsafe: true  # Enable user to embed HTML snippets in Markdown content.
+  highlight:
+    codeFences: false  # Disable Hugo's code highlighter as it conflicts with Academic's highligher.
+  tableOfContents:
+    startLevel: 2
+    endLevel: 3
+
+imaging:
+  resampleFilter: "lanczos"
+  quality: 90
+  anchor: "smart"  # Anchor for cropping. Options include Smart and Center.
+
+# Taxonomies.
+taxonomies:
+  tag: "tags"
+  category: "categories"
+  publication_type: "publication_types"
+  author: "authors"
+
+# Related content.
+related:
+  threshold: 80.0
+  includeNewer: true
+  toLower: true
+
+  indices:
+    - name: "title"
+      weight: 60.0
+    - name: "summary"
+      weight: 50.0
+    - name: "tags"
+      weight: 80.0
+    - name: "categories"
+      weight: 70.0
+    - name: "authors"
+      weight: 20.0
+

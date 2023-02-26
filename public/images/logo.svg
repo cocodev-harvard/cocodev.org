@@ -1,0 +1,58 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 308 308">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #f2385a;
+      }
+
+      .cls-1,
+      .cls-4,
+      .cls-5,
+      .cls-6,
+      .cls-7 {
+        opacity: 0.83;
+      }
+
+      .cls-2 {
+        fill: #f2f2f2;
+      }
+
+      .cls-3 {
+        fill: none;
+        stroke: #f2f2f2;
+        stroke-miterlimit: 10;
+        stroke-width: 0.8px;
+      }
+
+      .cls-4 {
+        fill: #36b1bf;
+      }
+
+      .cls-5 {
+        fill: #00abbd;
+      }
+
+      .cls-6 {
+        fill: #f5a503;
+      }
+
+      .cls-7 {
+        fill: #ffec5f;
+      }
+
+    </style>
+  </defs>
+  <title>half_logo_net</title>
+  <rect class="cls-1" x="87.21" y="-0.32" width="176.06" height="176.06" rx="9.6" />
+  <rect class="cls-1" x="108.82" y="21.29" width="132.84" height="132.84" rx="0.92" />
+  <circle class="cls-2" cx="175.58" cy="87.31" r="14.07" />
+  <line class="cls-3" x1="86.56" y1="175.34" x2="175.58" y2="87.31" />
+  <line class="cls-3" x1="219.1" y1="219.36" x2="175.58" y2="87.31" />
+  <rect class="cls-4" x="0.17" y="87.71" width="176.06" height="176.06" rx="9.6" />
+  <rect class="cls-5" x="20.78" y="109.32" width="132.84" height="132.84" rx="9.6" />
+  <circle class="cls-2" cx="86.56" cy="175.34" r="14.07" />
+  <line class="cls-3" x1="219.1" y1="219.36" x2="87.06" y2="174.85" />
+  <rect class="cls-6" x="131.22" y="131.73" width="176.06" height="176.06" rx="9.6" />
+  <rect class="cls-7" x="152.83" y="153.33" width="132.84" height="132.84" rx="9.6" />
+  <circle class="cls-2" cx="219.1" cy="219.36" r="14.07" />
+</svg>

@@ -1,0 +1,32 @@
+{{- define "main" -}}
+
+<main id="home" class="container px-3 py-5 mx-auto" role="main">
+  <div class="row" id="landing-page">
+    <div class="col-lg-6 col-12">
+      <img id="landing-logomark" class="pb-3"
+        src="/images/logo-abbreviation.svg" />
+    </div>
+    <div id="landing-text" class="col-12">
+      <p>{{ site.Data.admin.description | markdownify | emojify }}</p>
+    </div>
+  </div>
+  
+  <nav class="nav-blocks row row-cols-4">
+    {{ range $menu := site.Menus.main }}
+    <div class="nav-block">
+      <a class="nav-block mx-auto" class="col" href="{{ $menu.URL }}">
+        {{ $menuAsPage := $menu.Page }}
+        <span class="nav-block-title">{{ $menuAsPage.Title }}</span>
+        <span class="nav-block-subtitle">{{ $menuAsPage.Params.subtitle }} </span>
+      </a>
+    </div>
+    {{ end }}
+  </nav>
+  
+  <div class="article py-4">
+    {{ partial "widget_page" . }}
+  </div>
+  
+</main>
+
+{{- end -}}

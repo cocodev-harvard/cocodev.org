@@ -1,0 +1,142 @@
+# SITE SETUP
+# Guide: https://wowchemy.com/docs/getting-started/
+# Documentation: https://wowchemy.com/docs/
+#
+# This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
+
+## Appearance
+appearance:
+  theme_day: "cocodev"
+  theme_night: "cocodev"
+  font: ""
+  font_size: "L"
+
+## SEO (Search Engine Optimization)
+marketing:
+  seo:
+    site_type: "EducationalOrganization"
+    local_business_type: ""
+    org_name: "Computation, Cognition, and Development Lab"
+    description: >-
+      We investigate the common-sense knowledge people have about the world, where it
+      comes from, and how it develops throughout childhood.
+    twitter: ""
+  analytics:
+    google_analytics: ""
+    baidu_tongji: ""
+  verification:
+    google: ""
+    baidu: ""
+
+## Site Features
+features:
+  # Code highlighting
+  syntax_highlighter:
+    theme_light: "github-light"
+    theme_dark: "dracula"
+    extra_languages: ["r", "python", "julia"]
+  # LaTeX support
+  math:
+    enable: true
+
+  privacy_pack: false
+
+  repository:
+    url: "https://github.com/cocodev-harvard/cocodev.org"
+    content_dir: "content"
+    branch: "release"
+
+  show_releated: true
+
+############################
+## Advanced
+############################
+
+# Main menu alignment (l: left, c = center, r = right) and logo options.
+main_menu: {align = "c", show_logo = true}
+
+# Show estimated reading time for posts? (true/false)
+reading_time: true
+
+# Display next/previous section pager? (true/false)
+section_pager: false
+docs_section_pager: true  # Display pager in Docs layout (e.g. tutorials)?
+
+# Enable in-built social sharing buttons? (true/false)
+sharing: true
+
+# Show a copyright license from creativecommons.org in the site footer?
+# Page specific copyright licenses are also possible by adding this option to a page's front matter.
+copyright_license: {enable = false, allow_derivatives = false, share_alike = true, allow_commercial = false, notice = "This work is licensed under {license}"}
+
+# Link authors to their profile page? (true/false)
+link_authors: true
+
+# Abstract length (characters) in the Compact and Portfolio Card list views. Also, see `summaryLength` in `config.toml`.
+abstract_length: 135
+
+# Load JS plugins
+#   E.g. To load `/assets/js/custom.js`, set `plugins_js: ["custom"]`.
+plugins_js : []
+
+  ## Avatars
+  avatar:
+    gravatar: false
+    # Rounded is a custom shape provided by theme modifications!
+    shape: "rounded"
+
+# Configuration of project pages.
+[projects]
+  # Views for associated content.
+  #   1: List
+  #   2: Compact
+  #   3: Card
+  #   4: Citation (publications only)
+  post_view: 2
+  publication_view: 2
+  talk_view: 2
+
+  ## Comments
+  comment:
+    provider: ""
+    disqus:
+      shortname: ""
+      show_count: true
+    commento:
+      url: ""
+    giscus:
+      repo: ""
+      repo_id: ""
+      category: ""
+      category_id: ""
+  ## Search
+  search:
+    provider: "wowchemy"
+    algolia:
+      app_id: ""
+      api_key: ""
+      index_name: ""
+      show_logo: false
+  ## Maps
+  map:
+    engine: ""
+    api_key: ""
+    zoom: 15
+  ## Extensions (Content Management System, Icons)
+  extensions:
+    cms:
+      branch: "release"
+      local_backend: false
+    academicons:
+      # Academicons icon pack https://jpswalsh.github.io/academicons/
+      enable: true
+  ## Publications
+  publications:
+    date_format: "Jan 2006"
+    citation_style: "apa"
+
+locale:
+  date_format: "Jan 2, 2006"
+  time_format: "3:04 PM"
+  address_format: "en-us"
+

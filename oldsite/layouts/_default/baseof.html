@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="{{ site.LanguageCode | default "en-us" }}">
+{{ $page := . }}
+
+{{ partial "site_head" $page }}
+
+<body id="top"
+  {{ if $page.IsHome }}class="cocodev-home cocodev-particles" {{ end }}
+  data-spy="scroll"
+  data-offset="70"
+  data-target="{{ if .IsHome }}#navbar-main{{else}}#TableOfContents{{end}}"
+  {{ if not (.Scratch.Get "light") }}class="dark" {{end}}>
+
+  {{ partial "search" $page }}
+
+  {{ partial "navbar" $page }}
+
+  {{ block "main" . }}{{ end }}
+
+  {{ partial "site_js" $page }}
+
+  {{/* Docs and Updates layouts include the site footer in a different location. */}}
+  {{ if not (in (slice "docs" "updates") .Type) }}
+  <div class="container">
+    {{ partial "site_footer" $page }}
+  </div>
+  {{ end }}
+
+  {{ partial "citation" $page }}
+
+</body>
+
+</html>
